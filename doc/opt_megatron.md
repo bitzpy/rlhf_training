@@ -2,11 +2,13 @@
 
 ## opt 模型的结构
 
-opt 模型结构类似GPT模型的结构，由多个 transformer 解码器（如下图所示）堆叠而成。所以我们主要要解决的是 Mlp 和 Masked Multi Self Attention的模型并行。
+opt 模型结构类似GPT模型的结构，由多个 transformer 解码器（如下图所示）堆叠而成。所以我们主要要解决的是 Mlp 和 Masked Multi Self Attention的模型并行。      
 
 <img src="../img/opt_megatron/transformer_decoder.png" style="zoom:0%;" align="left" />
 
-### Masked Multi Self Attention的并行
+   
+
+### Masked Multi Self Attention的并行   
 
 ```python
 class ScaledDotProductAttention(nn.Module):
@@ -58,10 +60,10 @@ class Mutihead_Attention(nn.Module):
         out = torch.cat(out_tensor_list,axis=-1)
         out = out + residual
         out = self.layer_norm(out)
-        return out
+        return out   
 ```
 
-### MLP的并行
+### MLP的并行  
 
 ```python
 class TPRowLR(nn.Module):
