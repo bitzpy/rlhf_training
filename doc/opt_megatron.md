@@ -6,7 +6,7 @@ opt 模型结构类似GPT模型的结构，由多个 transformer 解码器（如
 
 <img src="../img/opt_megatron/transformer_decoder.png" style="zoom:0%;" align="left" />
 
-   
+​          
 
 ### Masked Multi Self Attention的并行   
 
