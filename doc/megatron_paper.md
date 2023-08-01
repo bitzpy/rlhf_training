@@ -2,7 +2,7 @@
 
 ## Tranformer结构
 
-- <img src="../img/megatron_paper/transformer_arch.png" style="zoom:50%;" align="left" />     
+- <img src="../img/megatron_paper/transformer_arch.png" style="zoom:50%;" align="center" />     
 
 <br>
 
