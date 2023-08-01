@@ -4,7 +4,7 @@
 
 opt 模型结构类似GPT模型的结构，由多个 transformer 解码器（如下图所示）堆叠而成。所以我们主要要解决的是 Mlp 和 Masked Multi Self Attention的模型并行。      
 
-<img src="../img/opt_megatron/transformer_decoder.png" style="zoom:0%;" align="center" />
+<img src="../img/opt_megatron/transformer_decoder.png" style="zoom:100%;" align="center" />
 
 ​          
 
