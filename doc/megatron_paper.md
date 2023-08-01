@@ -40,7 +40,7 @@
 
 我们可以先每个GPU各自算指数求和，然后进行AllReduce得到 softmax 的分母sum(e)，然后每块GPU 可以算各自的 loss，最后在通过AllReduce得到总 loss。
 
-![image-20230801180255352](/Users/zhangpuchang/Library/Application Support/typora-user-images/image-20230801180255352.png)
+<img src="../img/megatron_paper/softmax_megatron.png" style="zoom100%;" align="left" />
 
 
 
