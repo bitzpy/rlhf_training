@@ -4,6 +4,8 @@
 
 - <img src="../img/megatron_paper/transformer_arch.png" style="zoom:50%;" align="left" />     
 
+<br>
+
 ## GEMM+GELU的并行
 
 ### 方案一
