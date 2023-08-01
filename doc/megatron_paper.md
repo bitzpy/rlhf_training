@@ -8,16 +8,15 @@
 
 ## GEMM+GELU的并行
 
-### 方案一
+### 方案一   
 
-- <img src="../img/megatron_paper/formula1.png" style="zoom:30%;" align="left" />    
-
+- X = [X1, X2], A = [A1,A2]（X是按列切割， A按行切割）
 - Y = GeLU(X1A1+X2A2)    
 - GeLU(X1A1+X2A2]) != GeLU(X1A1)+GeLU(X2A2) (因为非线性)    
 
 ### 方案二
 
-- <img src="../img/megatron_paper/formula2.png" style="zoom:30%;" align="left" />   
+- A = [A1, A2]  （按列切割）
 
 - [Y1,Y2] = [GeLU(X1A1),GeLU(X2A2)]   
 
