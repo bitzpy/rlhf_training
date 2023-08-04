@@ -120,6 +120,6 @@ class MLP_Megatron(nn.Module):
 
 ### mlp 的模块的并行顺序为什么是col->row而不是row->col
 
-如果使用row->col的方式，如下图所示，g1，g2 会产生两次 gpu 通讯，因为 gelu 是非线性的，所以 g1 是必须的。
+如果使用row->col的方式，如下图所示，forward 的过程中g1，g2 会产生两次 gpu 通讯，因为 gelu 是非线性的，所以 g1 是必须的。
 
 <img src="../img/opt_megatron/communication2.png" style="zoom:100%;" align="center" />
