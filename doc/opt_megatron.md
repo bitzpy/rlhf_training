@@ -102,7 +102,7 @@ class MLP_Megatron(nn.Module):
         self.fc1 = nn.Linear(input_size, hidden_size/gpu_num)
         self.gelu = F.gelu()
         self.fc2 = nn.Linear(hidden_size/gpu_num, output_size)
-        self.dropout =  nn.Dropout(p=0.5)  # dropout训练
+        self.dropout =  nn.Dropout(p=0.5)  
     def forward(self, x):
         out = self.fc1(x)
         out = self.gelu(out)
