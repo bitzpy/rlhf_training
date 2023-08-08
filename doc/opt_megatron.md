@@ -37,7 +37,7 @@ class ScaledDotProductAttention(nn.Module):
 class Mutihead_Attention(nn.Module):
     def __init__(self):
         super(Mutihead_Attention, self).__init__()
-      
+
         self.w_q = nn.Linear(input_size, k_size/head_num , bias=False)
         self.w_k = nn.Linear(input_size, k_size/head_num , bias=False)
         self.w_v = nn.Linear(input_size, v_size/head_num , bias=False)
@@ -50,10 +50,12 @@ class Mutihead_Attention(nn.Module):
         k = self.w_k(x)
         v = self.w_v(x)
         if mask is not None:
-          mask = mask.unsqueeze(1)   # For head axis broadcasting.
+          mask = mask.unsqueeze(1)   
 
         out, attn = self.attention(q, k, v, mask=mask)
-				out = out*self.fc(out)
+        #每个 head 在一个 gpu 上计算，最后通信
+		out = out*self.fc(out)
+        
         dist.all_reduce(out, op=ReduceOp.SUM)
         return out   
 ```
@@ -106,7 +108,7 @@ class MLP_Megatron(nn.Module):
     def forward(self, x):
         out = self.fc1(x)
         out = self.gelu(out)
-				out = self.fc2(out)
+		out = self.fc2(out)
         out = self.dropout(out)
         dist.all_reduce(out, op=ReduceOp.SUM)
         return out
